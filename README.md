@@ -19,5 +19,56 @@ A Pokémon’s rank is calculated based on multiple factors: stats (60%), moves 
 
 Each move has a score based on its power/effects, PP, and accuracy. A Physically damaging move, for example, would be assigned a score that’s 70% power (normalized by 100), 30% PP (normalized by 35), and then multiplied by the accuracy rate. So a strong move like Hyper Beam would have very strong power (150/100), a low PP (5/35) and then a fair accuracy rate of 90%. This allows me to balance the ultra strong moves with the fairly strong moves due to the variance in PP and accuracy, resulting in a relatively normalized Move Score.
 
+#Some Example Teams:
+
+Note: My program built the team itself but visual type chart is taken from http://www.azurilland.com/tools/team-builder
+
+**All Bug Type Team:**
+
+Slot 1: volcarona
+
+Slot 2: durant
+
+Slot 3: forretress
+
+Slot 4: accelgor
+
+Slot 5: scizor
+
+Slot 6: escavalier
+
+Your team's collective balance (positive means more pokemon are strong to the type than weak to it & vice versa):
+
+{DARK=0.0, ROCK=-2.5, STEEL=3.5, ELECTRIC=0.0, GROUND=1.75, FAIRY=4.5, POISON=2.5, ICE=2.5, FLYING=-2.75, DRAGON=3.0, BUG=4.5, FIGHTING=3.25, FIRE=-3.25, GHOST=0.0, GRASS=4.25, WATER=0.0, PSYCHIC=2.5, NORMAL=3.0}
+
+Your team's balance score: 26.75
+
+![Image](http://i.imgur.com/YbCMxrI.png?1?raw=true)
+
+
+
+
+**Team built with no user generated criteria:**
+
+Slot 1: jirachi
+
+Slot 2: ho-oh
+
+Slot 3: zygarde
+
+Slot 4: xerneas
+
+Slot 5: yveltal
+
+Slot 6: registeel
+
+Your team's collective balance (positive means more pokemon are strong to the type than weak to it & vice versa):
+
+{DARK=0.0, ROCK=1.25, STEEL=2.0, ELECTRIC=1.5, GROUND=-2.0, FAIRY=1.0, POISON=2.5, ICE=1.25, FLYING=2.0, DRAGON=0.5, BUG=1.75, FIGHTING=-0.5, FIRE=0.75, GHOST=0.5, GRASS=4.0, WATER=0.5, PSYCHIC=2.5, NORMAL=2.0}
+
+Your team's balance score: 21.5
+
+![Image](http://i.imgur.com/8JBvp5B.png?raw=true)
+
 
 
