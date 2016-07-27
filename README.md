@@ -37,7 +37,7 @@ Slot 5: scizor
 
 Slot 6: escavalier
 
-Your team's collective balance (positive means more pokemon are strong to the type than weak to it & vice versa):
+Your team's collective balance (positive means more pokemon are resistant to the type than there are pokemon weak to it & vice versa):
 
 {DARK=0.0, ROCK=-2.5, STEEL=3.5, ELECTRIC=0.0, GROUND=1.75, FAIRY=4.5, POISON=2.5, ICE=2.5, FLYING=-2.75, DRAGON=3.0, BUG=4.5, FIGHTING=3.25, FIRE=-3.25, GHOST=0.0, GRASS=4.25, WATER=0.0, PSYCHIC=2.5, NORMAL=3.0}
 
