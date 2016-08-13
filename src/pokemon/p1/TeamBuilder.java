@@ -192,9 +192,7 @@ public class TeamBuilder {
 		// select rest of team
 		for (int i = 1; i <= 5; i++) {
 			for (Map.Entry<Integer, Pokemon> entry : critList) {
-				if (!arrContains(team, entry.getValue())) { // if it hasn't
-					// already been
-					// chosen
+				if (!arrContains(team, entry.getValue())) { // if it hasn't already been chosen
 					team[i] = entry.getValue();
 					for (PType weak : team[i].getWeaknesses().keySet()) {
 						double bal = balance.get(weak);
