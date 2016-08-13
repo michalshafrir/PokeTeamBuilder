@@ -193,8 +193,8 @@ public class TeamBuilder {
 		for (int i = 1; i <= 5; i++) {
 			for (Map.Entry<Integer, Pokemon> entry : critList) {
 				if (!arrContains(team, entry.getValue())) { // if it hasn't
-															// already been
-															// chosen
+					// already been
+					// chosen
 					team[i] = entry.getValue();
 					for (PType weak : team[i].getWeaknesses().keySet()) {
 						double bal = balance.get(weak);
@@ -290,53 +290,56 @@ public class TeamBuilder {
 		String color = sortparam.getColor();
 		PType type = sortparam.getPt();
 		String stat = sortparam.getStat();
+		boolean addLegend = sortparam.isLegendaries();
+		System.out.println(addLegend);
 		for (Pokemon p : DEX.values()) {
-			if (numCriteria == 0) { // if no specific criteria input, just base
-									// it on pokerank
-				tempScore = p.pokeRank();
-				criteriaList.put((int) tempScore, p);
-			} else if (p.getTotalStat() < 580) {
-				criteriaMet = 0;
-				if (color != null) {
-					if (p.getColor().equals(color)) {
-						criteriaMet += 1;
-					}
-				}
-				if (type != null) {
-					for (PType pt : p.getType()) {
-						if (pt == type) {
+			if (!p.isLegendary() || addLegend){ //if the user wants legendary pokemon on their team or not
+				if (numCriteria == 0) { // if no specific criteria input, just base it on pokerank
+					tempScore = p.pokeRank();
+					criteriaList.put((int) tempScore, p);
+				} else if (p.getTotalStat() < 580) {
+					criteriaMet = 0;
+					if (color != null) {
+						if (p.getColor().equals(color)) {
 							criteriaMet += 1;
 						}
 					}
-				}
-				// Increment criteria by scale (relative to stat) for whichever
-				// stat was chosen
-				if (stat != null) {
-					if (stat.equals("HP")) {
-						if (p.getHp() / 80 > 1) {
-							criteriaMet++;
-						} else {
-							criteriaMet += 1.0 * p.getHp() / 80;
+					if (type != null) {
+						for (PType pt : p.getType()) {
+							if (pt == type) {
+								criteriaMet += 1;
+							}
 						}
-					} else if (stat.equals("ATTACK")) {
-						criteriaMet += 1.0 * p.getAttack() / 120;
-					} else if (stat.equals("DEFENSE")) {
-						criteriaMet += 1.0 * p.getDefense() / 120;
-					} else if (stat.equals("SPATTACK")) {
-						criteriaMet += 1.0 * p.getSpAtk() / 120;
-					} else if (stat.equals("SPDEFENSE")) {
-						criteriaMet += 1.0 * p.getSpDef() / 120;
-					} else if (stat.equals("SPEED")) {
-						criteriaMet += 1.0 * p.getSpeed() / 110;
-					} else if (stat.equals("TOTAL")) {
-						criteriaMet += 1.0 * p.getTotalStat() / 500;
 					}
-				}
+					// Increment criteria by scale (relative to stat) for whichever
+					// stat was chosen
+					if (stat != null) {
+						if (stat.equals("HP")) {
+							if (p.getHp() / 80 > 1) {
+								criteriaMet++;
+							} else {
+								criteriaMet += 1.0 * p.getHp() / 80;
+							}
+						} else if (stat.equals("ATTACK")) {
+							criteriaMet += 1.0 * p.getAttack() / 120;
+						} else if (stat.equals("DEFENSE")) {
+							criteriaMet += 1.0 * p.getDefense() / 120;
+						} else if (stat.equals("SPATTACK")) {
+							criteriaMet += 1.0 * p.getSpAtk() / 120;
+						} else if (stat.equals("SPDEFENSE")) {
+							criteriaMet += 1.0 * p.getSpDef() / 120;
+						} else if (stat.equals("SPEED")) {
+							criteriaMet += 1.0 * p.getSpeed() / 110;
+						} else if (stat.equals("TOTAL")) {
+							criteriaMet += 1.0 * p.getTotalStat() / 500;
+						}
+					}
 
-				//adds to list if at least one criteria was slightly met.
-				if (criteriaMet > 0) {
-					tempScore = ((1.0 * criteriaMet) / numCriteria * 1.0) * .35 + p.pokeRank() * .65;
-					criteriaList.put((int) tempScore, p);
+					//adds to list if at least one criteria was slightly met.
+					if (criteriaMet > 0) {
+						tempScore = ((1.0 * criteriaMet) / numCriteria * 1.0) * .35 + p.pokeRank() * .65;
+						criteriaList.put((int) tempScore, p);
+					}
 				}
 			}
 

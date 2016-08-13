@@ -28,7 +28,7 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		
 		// Parsing data csv files
-		String fileName = "input/pokemonNamesAndIDs.txt";
+		String fileName = "input/pokemonNamesAndIDsUpdated.txt";
 		Parser parse = Parser.getInstance();
 		parse.mainParse(fileName);
 		fileName = "input/typeIDs.txt";
@@ -67,21 +67,15 @@ public class Main {
 		System.out.println("\nEnter a preference for Pokemon stat"
 				+ "\n[hp, attack, defense, spattack, spdefense, speed, total]" + "\nOr enter NONE if no preference:");
 		String stat = scan.next();
-//		System.out.println("\nDo you want legendary Pokemon on your team? (Y/N)"); //Coming Soon!
-//		String yn = scan.next();
+		System.out.println("\nDo you want legendary Pokemon on your team? (Y/N)");
+		String yn = scan.next();
 		System.out.println();
 		/****************************************************************************/
 
-		String[] args2 = { type, color, stat };
+		String[] args2 = { type.toUpperCase(), color.toLowerCase(), stat.toUpperCase(), yn.toLowerCase()};
 
 		sortparam.initSortParam(args2);
-		// If legendaries should be part of the team or not (yet to be implemented)
-//		if (yn.equals("n")) {
-//			sortparam.setLegendaries(false);
-//		} else {
-//			sortparam.setLegendaries(true);
-//		}
-
+		
 		for (Pokemon p : dex.values()) {
 			TYPECHART = teamBuilder.createTypeChart(TYPECHECK, p.getType());
 			p.setAllRelations(TYPECHART);

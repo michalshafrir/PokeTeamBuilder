@@ -25,6 +25,7 @@ public class Pokemon {
 	private int accuracy;
 	private int evasion;
 	private int totalStat;
+	private boolean legendary;
 	private LinkedList<Integer> moveIDs = new LinkedList<Integer>();
 	private HashMap<Integer, Move> moves = new HashMap<Integer, Move>();
 	private HashMap<PType, Double> weaknesses = new HashMap<PType, Double>();
@@ -115,12 +116,21 @@ public class Pokemon {
 		this.moveIDs.add(moveID);
 	}
 
+	public void setLegendary(boolean x){
+		legendary = x;
+	}
+	
+	public boolean isLegendary(){
+		return legendary;
+	}
+	
 	@Override
 	public String toString() {
 		return "Pokemon [name=" + name + ", id=" + id + ", height=" + height + ", weight=" + weight + ", type="
 				+ Arrays.toString(type) + ", color=" + color + ", hp=" + hp + ", attack=" + attack + ", defense="
 				+ defense + ", spAtk=" + spAtk + ", spDef=" + spDef + ", speed=" + speed + ", accuracy=" + accuracy
-				+ ", evasion=" + evasion + ", moveIDs=" + moveIDs + "]";
+				+ ", evasion=" + evasion + ", totalStat=" + totalStat + ", legendary=" + legendary + ", moveIDs="
+				+ moveIDs + ", moves=" + moves + ", weaknesses=" + weaknesses + ", strengths=" + strengths + "]";
 	}
 
 	public int getHp() {

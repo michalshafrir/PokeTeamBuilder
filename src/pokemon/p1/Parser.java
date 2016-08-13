@@ -53,6 +53,7 @@ public class Parser {
 					if (Integer.parseInt(arr[0]) <= 721) {
 						DEX.put(Integer.parseInt(arr[0]), p);
 					}
+					p.setLegendary(Integer.parseInt(arr[8]) == 1);
 				}
 			}
 			bufferedReader.close();

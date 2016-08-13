@@ -20,7 +20,7 @@ public class SortParam {
 
 	@Override
 	public String toString() {
-		return "SortParam [color=" + color + ", stat=" + stat + ", pt=" + pt + "]";
+		return "SortParam [color=" + color + ", stat=" + stat + ", pt=" + pt + ", legendaries=" + legendaries + "]";
 	}
 
 	public void initSortParam(String[] args) {
@@ -29,7 +29,6 @@ public class SortParam {
 		for (String s : args) {
 
 			/** Type Argument Parsing */
-			s = s.toUpperCase();
 			if (s.equals("NORMAL")) {
 				pt = PType.NORMAL;
 			} else if (s.equals("FIGHTING")) {
@@ -75,7 +74,6 @@ public class SortParam {
 			}
 
 			/** Color Parse */
-			s = s.toLowerCase();
 			if (s.equals("red")) {
 				color = s;
 			} else if (s.equals("blue")) {
@@ -98,6 +96,12 @@ public class SortParam {
 				color = s;
 			}
 
+			/**Legendary parse (if they want legendaries on the team or not)*/
+			if(s.equals("n")){
+				legendaries = false; 
+			} else if (s.equals("y")){//Handled both conditions so the user could input 'n' for other categories instead of writing "none"
+				legendaries = true;
+			}
 		}
 	}
 
@@ -129,10 +133,6 @@ public class SortParam {
 
 	public boolean isLegendaries() {
 		return legendaries;
-	}
-
-	public void setLegendaries(boolean legendaries) {
-		this.legendaries = legendaries;
 	}
 
 }
